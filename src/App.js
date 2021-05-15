@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { getURLByRouteName } from "./utils/routes";
 
-function App() {
+import { setVisitor } from "./redux/actions/visitor";
+import Home from "./views/Home";
+import ShoppingCart from "./views/ShoppingCart";
+
+import { getVisitor } from "./services/api";
+
+const App = (props) => {
+  const { dispatch } = props;
+
+  const getInitialData = async () => {
+    const responseVisitor = await getVisitor();
+
+    const { code, data } = responseVisitor;
+    if (code === 200) {
+      dispatch(setVisitor(data));
+    }
+  };
+
+  useEffect(() => {
+    getInitialData();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path={getURLByRouteName("home")} component={Home} />
+        <Route
+          exact
+          path={getURLByRouteName("shoppingCart")}
+          component={ShoppingCart}
+        />
+      </Switch>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToPros = (state) => ({});
+
+export default connect(mapStateToPros)(App);

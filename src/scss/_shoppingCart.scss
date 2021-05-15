@@ -1,0 +1,106 @@
+.shopping-cart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .cart-container {
+    width: 100%;
+    height: 30%;
+
+    .cart {
+      margin: 0 auto;
+      width: 30%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .counter {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        background-color: #bfff00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 20px;
+        top: 30px;
+        color: red;
+      }
+      img {
+        height: 120px;
+        width: 180px;
+      }
+      p {
+        text-align: center;
+        color: #0096d2;
+      }
+    }
+  }
+  .products-container {
+    width: 100%;
+    height: 68%;
+    overflow-y: auto;
+    .products {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .element {
+        margin: 15px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 28%;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        box-shadow: 0px 1px 0px #ccc, 1px 2px 0px#ccc, 2px 3px 0px #ccc;
+        span {
+          border: 1px solid #ccc;
+          margin: 8px;
+        }
+        .header-product {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .title {
+          }
+          .price {
+            color: #0096d2;
+          }
+        }
+        img {
+          width: 150px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .shopping-cart-container {
+    .cart-container {
+      .cart {
+        .counter {
+          height: 50px;
+          width: 50px;
+          border-radius: 50px;
+          background-color: #bfff00;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 100px;
+          right: -50px;
+        }
+      }
+    }
+  }
+}
