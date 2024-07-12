@@ -7,7 +7,7 @@ import {
   clearShoppingCart,
 } from "../../redux/actions/shoppingCart";
 
-import icon from "../../assets/img/icon.png";
+// import icon from "../../assets/img/icon.png";
 
 const Header = (props) => {
   const { setProducts, page, clearShoppingCart, setSearch, search, setPage } =
@@ -16,13 +16,13 @@ const Header = (props) => {
   let [isVisiblePopover, setIsVisiblePopover] = useState(false);
 
   const searchProducts = async () => {
-    if (window.location.pathname != "/shopping_cart") {
+    if (window.location.pathname !== "/shopping_cart") {
       // window.location.href = "./shopping_cart";
       window.history.replaceState("statedata", "title", "./shopping_cart");
     }
 
     const responseProducts = await getProducts(search, page);
-
+console.log(responseProducts);
     const { code, data } = responseProducts;
     if (code === 200) {
       setProducts(data.products);
@@ -43,12 +43,12 @@ const Header = (props) => {
 
   return (
     <div className="header">
-      <img src={icon} alt="icon"></img>
-      <p>e-Commerce Gapsi</p>
+      {/* <img src={icon} alt="icon"></img> */}
+      <p>Shopping Cart</p>
       <div
         className="menu-bar"
         onClick={() => {
-          if (window.location.pathname == "/shopping_cart") {
+          if (window.location.pathname === "/shopping_cart") {
             setIsVisiblePopover(!isVisiblePopover);
           }
         }}

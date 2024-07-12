@@ -22,8 +22,9 @@ const App = (props) => {
   };
 
   useEffect(() => {
+    
     getInitialData();
-  }, []);
+  });
   return (
     <div>
       <Switch>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import MainLayout from "../../containers/MainLayout";
-import logo from "../../assets/img/logo.png";
+// import logo from "../../assets/img/logo.png";
 
 const Home = (props) => {
   const { visitor } = props;
@@ -12,11 +12,11 @@ const Home = (props) => {
   return (
     <MainLayout>
       <div className="home-container">
-        <div className="circle">
+        {/* <div className="circle">
           <img src={logo} alt="logo"></img>
         </div>
 
-        <p>{visitor.welcome}</p>
+        <p>{visitor.welcome}</p> */}
         <button
           onClick={() => {
             window.location.href = "./shopping_cart";

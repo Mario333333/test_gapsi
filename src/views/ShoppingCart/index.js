@@ -13,6 +13,7 @@ const ShoppingCart = (props) => {
 
   const searchProducts = async (currentPage) => {
     const responseProducts = await getProducts(search, currentPage);
+    console.log(responseProducts);
     const { code, data } = responseProducts;
     if (code === 200) {
       setProducts(data.products);
@@ -35,7 +36,7 @@ const ShoppingCart = (props) => {
   };
 
   useEffect(() => {}, []);
-
+console.log(products);
   return (
     <MainLayout isVisibleFooter={false}>
       <div className="shopping-cart-container">
@@ -52,7 +53,7 @@ const ShoppingCart = (props) => {
           ref={listInnerRef}
           className="products-container"
         >
-          {products != [] && (
+          {products.length !== 0 && (
             <DragContainer className="products">
               {products.map((item) => {
                 return (
